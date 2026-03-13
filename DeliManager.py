@@ -1,12 +1,42 @@
 import os
 import json
+import sys
 
 mesas_reservadas = []
 
 def MenuManager():
-    print("WIP")
+    #Maneja la interfaz del menu
+    while True:
+        print("\n===== Menú Principal Deliciosoft =====")
+        print("1. Anadir reservacion")
+        print("2. Mostrar mesas reservadas")
+        print("3. Eliminar Reservacion")
+        print("4. Salir")
+
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == "1":
+            AddTableRes()
+        elif opcion == "2":
+            ShowTableRes()
+        elif opcion == "3":
+            DeleteTableRes()
+        elif opcion == "4":
+            print("Saliendo del programa...")
+            sys.exit(0)
+        else:
+            print("Opción no válida. Intente de nuevo.")
+
+def DeleteTableRes():
+    #Elimina una reservacion
+    mesa_eliminar = input("\nSeleccione la mesa a eliminar:")
+    ShowTableRes()
+    del mesas_reservadas[mesa_eliminar]
+
+    print("Se ha eliminado la reservacion")
 
 def ShowTableRes():
+    #Muestra las mesas actualmente reservadas
     print(f"Estas son las mesas reservadas:\n {mesas_reservadas}")
 
 def AddTableRes():
